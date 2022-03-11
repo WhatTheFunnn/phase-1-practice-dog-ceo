@@ -26,18 +26,19 @@ document.addEventListener('DOMContentLoaded', (e) => {
             bl.forEach((breed) => {
                 const li = document.createElement('li')
                 li.innerText = `${breed}`
-                types.appendChild(li)  
-                li.addEventListener("click", (d) =>{   
-                li.style.color = "red"
-                    dog.addEventListener("change", (e) => {
-                        const newDogList = bl.filter(dog => dog.startsWith(e.target.value))
-                        var el = []
-                        types.append(newDogList)
-                    })
+                types.appendChild(li)
+                li.addEventListener("click", (d) => {
+                    li.style.color = "red"
+                })
+                dog.addEventListener("change", (e) => {
+                    while (types.firstChild) {
+                        types.removeChild(types.firstChild)
+                    }
+                    const newDogList = bl.filter(dog => dog.startsWith(e.target.value))
+                    types.append(newDogList)
+                   
                     
                 })
             })
         })
 })
-
-//This should have been an asychronous function so that all of the event listeners works simultaniously instead of one after the other. 
