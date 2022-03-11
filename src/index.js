@@ -3,7 +3,6 @@ for (let i = 0; i < dog; i++);
 const imgUrl = "https://dog.ceo/api/breeds/image/random/4"
 const breedUrl = 'https://dog.ceo/api/breeds/list/all'
 
-
 document.addEventListener('DOMContentLoaded', (e) => {
     const pics = document.querySelector("#dog-image-container")
     fetch(imgUrl)
@@ -26,14 +25,17 @@ document.addEventListener('DOMContentLoaded', (e) => {
             bl.forEach((breed) => {
                 const li = document.createElement('li')
                 li.innerText = `${breed}`
-                types.appendChild(li)
+                types.appendChild(li)  
+                const b1 = document.querySelector("#dog-breeds > li")
+                
+                //for(let i = 0; i < b1.length; b1++)
+                //document.addEventListener("click", (d) =>{   
+                  //  b1.style.color = "red"
+                    console.log(b1)
+                //})
             })
         })
 })
 
-function colorText() {
-    document.addEventListener("click", function(){
-    var col = document.getElementById('li').fontcolor("red")
-    
-    })
-}
+
+
