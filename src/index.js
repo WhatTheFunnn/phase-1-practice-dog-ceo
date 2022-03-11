@@ -4,6 +4,7 @@ const imgUrl = "https://dog.ceo/api/breeds/image/random/4"
 const breedUrl = 'https://dog.ceo/api/breeds/list/all'
 
 document.addEventListener('DOMContentLoaded', (e) => {
+    const dog = document.querySelector("#breed-dropdown")
     const pics = document.querySelector("#dog-image-container")
     fetch(imgUrl)
         .then(response => response.json())
@@ -26,16 +27,17 @@ document.addEventListener('DOMContentLoaded', (e) => {
                 const li = document.createElement('li')
                 li.innerText = `${breed}`
                 types.appendChild(li)  
-                const b1 = document.querySelector("#dog-breeds > li")
-                
-                //for(let i = 0; i < b1.length; b1++)
-                //document.addEventListener("click", (d) =>{   
-                  //  b1.style.color = "red"
-                    console.log(b1)
-                //})
+                li.addEventListener("click", (d) =>{   
+                li.style.color = "red"
+                    dog.addEventListener("change", (e) => {
+                        const newDogList = bl.filter(dog => dog.startsWith(e.target.value))
+                        var el = []
+                        types.append(newDogList)
+                    })
+                    
+                })
             })
         })
 })
 
-
-
+//This should have been an asychronous function so that all of the event listeners works simultaniously instead of one after the other. 
